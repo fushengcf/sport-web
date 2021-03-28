@@ -30,8 +30,8 @@ function _delete(id) {
 
 
 //所有预定
-function getTypes(){
-  return request.get('/subscribe/allType')
+function getSubscrbes(params){
+  return request.get('/subscribe/allSubscribe',params)
 }
 
 export default {
@@ -40,5 +40,5 @@ export default {
   edit,
   detail,
   _delete,
-  getTypes
+  getSubscrbes
 }

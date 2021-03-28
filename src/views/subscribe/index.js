@@ -24,18 +24,13 @@ export default {
           align: 'center'
         },
         {
-          prop: 'typeId',
+          prop: 'type',
           label: '运动类型',
           align: 'center'
         },
         {
-          prop: 'sportId',
+          prop: 'sport',
           label: '运动场地名称',
-          align: 'center'
-        },
-        {
-          prop: 'venueId',
-          label: '场馆名称',
           align: 'center'
         },
         {
@@ -44,7 +39,7 @@ export default {
           align: 'center'
         },
         {
-          prop: 'endTime',
+          prop: 'finishTime',
           label: '结束时间',
           align: 'center'
         },
@@ -64,11 +59,16 @@ export default {
           scopedSlots: { customRender: 'action' },
           width: 250
         }
-      ]
+      ],
+      types:[]
     }
   },
 
   mounted() {
     this.$getData()
-  }
+    this.$api.type.getTypes().then(res => {
+      this.types = res.data
+    })
+  },
+
 }

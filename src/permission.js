@@ -36,7 +36,7 @@ router.beforeEach(async(to, from, next) => {
     }
     next()
     try {
-      const { roles } = await store.dispatch('user/getUserInfo')
+      const { roles,id } = await store.dispatch('user/getUserInfo')
       // const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
 
       // 服务器获取权限菜单

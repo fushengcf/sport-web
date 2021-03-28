@@ -51,7 +51,7 @@ export const constantRoutes = [
     ]
   },
   Type,
-  Venue,
+  // Venue,
   Sport,
   Subscribe,
   {

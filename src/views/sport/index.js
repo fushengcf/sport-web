@@ -24,19 +24,20 @@ export default {
           align: 'center'
         },
         {
-          prop: 'typeId',
+          prop: 'type',
           label: '运动类型',
           align: 'center'
         },
         {
-          prop: 'venueId',
+          prop: 'venue',
           label: '场馆名称',
           align: 'center'
         },
         {
-          prop: 'status',
+          // prop: 'status',
           label: '状态',
-          align: 'center'
+          align: 'center',
+          scopedSlots: { customRender: 'status' },
         },
         {
           prop: 'createTime',
@@ -49,11 +50,27 @@ export default {
           scopedSlots: { customRender: 'action' },
           width: 250
         }
-      ]
+      ],
+      types:[]
     }
   },
 
   mounted() {
     this.$getData()
+    this.$api.type.getTypes().then(res => {
+      this.types = res.data
+    })
+  },
+
+  methods:{
+    setStatus(id,status){
+      const params={
+        id,
+        status
+      }
+      this.$api[this.pageKey].handleStatus(params).then(res => {
+        this.$getData();
+      })
+    }
   }
 }

@@ -9,25 +9,23 @@
         />
       </el-col>
 
-      <el-col :span="4">
-        <el-input
-          v-model="paramsForm.name"
-          placeholder="预定人联系方式"
-          clearable
-        />
-      </el-col>
 
       <el-col :span="4">
-        <el-input v-model="paramsForm.name" placeholder="运动类型" clearable />
+        <el-select
+          v-model="paramsForm.typeId"
+          placeholder="请选择运动类型"
+          clearable=""
+          style="width: 100%"
+        >
+          <el-option
+            v-for="item in types"
+            :key="item.id"
+            :label="item.name"
+            :value="item.id"
+          />
+        </el-select>
       </el-col>
 
-      <el-col :span="4">
-        <el-input v-model="paramsForm.name" placeholder="所属场馆" clearable />
-      </el-col>
-
-      <el-col :span="4">
-        <el-input v-model="paramsForm.code" placeholder="时间段" clearable />
-      </el-col>
 
       <el-col :span="4">
         <el-button

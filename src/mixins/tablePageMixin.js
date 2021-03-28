@@ -3,6 +3,8 @@
   用于 页面 公共方法 与 数据 封装
 */
 import { MessageBox, Message, Notification } from 'element-ui'
+import Cookies from 'js-cookie'
+import jwtDecode from 'jwt-decode'
 
 export default {
   data() {
@@ -14,7 +16,8 @@ export default {
         page: 1,
         total: 0,
         size: 10,
-        start: 1
+        start: 1,
+        venueId:jwtDecode(Cookies.get('USER_TOKEN')).id
       },
       paramsForm: {},
       tableData: []

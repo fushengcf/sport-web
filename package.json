@@ -1,5 +1,5 @@
 {
-  "name": "warehouse",
+  "name": "sport-web",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "fuse.js": "3.4.4",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
+    "jwt-decode": "^3.1.2",
     "normalize.css": "7.0.0",
     "nprogress": "^0.2.0",
     "path-to-regexp": "2.4.0",

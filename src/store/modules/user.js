@@ -6,6 +6,7 @@ const state = {
   token: auth.getToken(),
   roles: [],
   name: '',
+  id:'',
   avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
 }
 
@@ -20,6 +21,10 @@ const mutations = {
 
   SET_NAME: (state, name) => {
     state.name = name
+  },
+
+  SET_ID: (state, id) => {
+    state.id = id
   }
 }
 
@@ -34,7 +39,6 @@ const actions = {
     }
     return new Promise((resolve, reject) => {
       $api.userInfo.token(params).then(res => {
-        console.log(res.data)
         const value  = res.data
         // const token = `Bearer ${ value }`
         commit('SET_TOKEN', value)
@@ -54,7 +58,7 @@ const actions = {
           reject('用户校验失败，请重新登录')
         }
 
-        const { name, authorities } = res.data
+        const { name, id,authorities } = res.data
 
         // const roles = authorities.map(item => item.authority)
         const roles = ['admin']
@@ -64,8 +68,9 @@ const actions = {
           reject('暂无权限,请联系管理员')
         }
         commit('SET_NAME', name)
+        commit('SET_ID', id)
         commit('SET_ROLES', roles)
-        resolve({ roles })
+        resolve({ roles,id })
       })
 
       // .catch(()=>{

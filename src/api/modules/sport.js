@@ -30,8 +30,12 @@ function _delete(id) {
 
 
 //所有运动
-function getSports(){
-  return request.get('/sport/allSport')
+function getSports(params){
+  return request.get('/sport/allSport',params)
+}
+//禁、启用场地
+function handleStatus(params) {
+  return request.postJson('/sport/status', params)
 }
 
 export default {
@@ -40,5 +44,6 @@ export default {
   edit,
   detail,
   _delete,
-  getSports
+  getSports,
+  handleStatus
 }
